@@ -1,0 +1,24 @@
+---
+- name: Install apache
+  hosts: dcloud-servers
+  roles:
+    - { role: geerlingguy.apache }
+  vars_files:
+    - vars/main.yml
+
+  tasks:
+  - name: Copy index file
+    copy:
+      src: files/index.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
+
+  - name: "Allow apache listen port through firewalld"
+    firewalld:
+      port: "{{apache_listen_port}}/tcp"
+      zone: public
+      permanent: true
+      state: enabled
+      immediate: true

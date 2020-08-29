@@ -1,0 +1,9 @@
+---
+- name: Undeploy
+  hosts: dcloud-servers
+  tasks:
+  - name: Undeploy servers
+    yum:
+      name: httpd
+      autoremove: yes
+      state: absent
