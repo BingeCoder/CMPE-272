@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Centos</title>
+    </head>
+    <script>
+        function onload(){
+            document.getElementById('body').innerHTML = "Hello World from " + (document.URL.includes("198.18.134.49") ? "CentOS1" : "CentOS2");
+        }
+    </script>
+    <body onload="onload()">
+        <p id="body"></p>
+    </body>
+</html>
