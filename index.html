@@ -1,14 +1,21 @@
-<!DOCTYPE HTML>
 <html>
-    <head>
-        <title>Centos</title>
-    </head>
-    <script>
-        function onload(){
-            document.getElementById('body').innerHTML = "Hello World from " + (document.URL.includes("198.18.134.49") ? "CentOS1" : "CentOS2");
-        }
-    </script>
-    <body onload="onload()">
-        <p id="body"></p>
-    </body>
+<head>
+  <title> </title>
+<head>
+<script>
+  function onload(){
+    if(location.host.includes("centos1")||location.host.includes("198.18.134.49"))
+    {
+     document.getElementById('welcome_msg').innerHTML = 'CentOS1';
+     document.title = 'Hello World from CentOS1';
+    }
+    else{
+     document.getElementById('welcome_msg').innerHTML = 'CentOS2';
+     document.title = 'Hello World from CentOS2';
+    }
+  }
+</script>
+<body onload="onload()">
+<h1>Hello World From  <span id='welcome_msg'></span>!</h1>
+</body>
 </html>
